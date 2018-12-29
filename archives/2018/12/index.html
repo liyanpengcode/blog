@@ -79,24 +79,16 @@
 
 
 
-<meta name="description" content="[TOC] 并发简史在过去,计算机只有一个CPU,并且只能执行一个程序.后来出现多任务处理,可以同时处理执行多个任务程序.然而实际上它并不是”同一时间执行”,而是随着时间片切换执行. 随着多任务处理,只能满足计算机可以处理运行多个应用程序能力,并没有实现程序多线程的处理能力,导致程序性能不好. 后来出现程序多线程,也就是同一程序在CPU执行同时,可以在CPU执行程序同事间段处理多个任务线程,提高了">
+<meta name="description" content="我荒废的今日，正是昨日殒身之人祈求的明日。">
 <meta property="og:type" content="website">
 <meta property="og:title" content="LYP">
-<meta property="og:url" content="http://liyanpeng.com/java并发和多线程.html">
+<meta property="og:url" content="http://liyanpeng.com/archives/2018/12/index.html">
 <meta property="og:site_name" content="LYP">
-<meta property="og:description" content="[TOC] 并发简史在过去,计算机只有一个CPU,并且只能执行一个程序.后来出现多任务处理,可以同时处理执行多个任务程序.然而实际上它并不是”同一时间执行”,而是随着时间片切换执行. 随着多任务处理,只能满足计算机可以处理运行多个应用程序能力,并没有实现程序多线程的处理能力,导致程序性能不好. 后来出现程序多线程,也就是同一程序在CPU执行同时,可以在CPU执行程序同事间段处理多个任务线程,提高了">
+<meta property="og:description" content="我荒废的今日，正是昨日殒身之人祈求的明日。">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://liyanpeng.com/images/1545015728283.png">
-<meta property="og:image" content="http://liyanpeng.com/images/1545032935316.png">
-<meta property="og:image" content="http://liyanpeng.com/images/1545034647944.png">
-<meta property="og:image" content="http://liyanpeng.com/images/1545232066320.png">
-<meta property="og:image" content="http://liyanpeng.com/images/1545233875008.png">
-<meta property="og:image" content="http://liyanpeng.com/images/1545275989733.png">
-<meta property="og:updated_time" content="2018-12-29T02:09:37.253Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LYP">
-<meta name="twitter:description" content="[TOC] 并发简史在过去,计算机只有一个CPU,并且只能执行一个程序.后来出现多任务处理,可以同时处理执行多个任务程序.然而实际上它并不是”同一时间执行”,而是随着时间片切换执行. 随着多任务处理,只能满足计算机可以处理运行多个应用程序能力,并没有实现程序多线程的处理能力,导致程序性能不好. 后来出现程序多线程,也就是同一程序在CPU执行同时,可以在CPU执行程序同事间段处理多个任务线程,提高了">
-<meta name="twitter:image" content="http://liyanpeng.com/images/1545015728283.png">
+<meta name="twitter:description" content="我荒废的今日，正是昨日殒身之人祈求的明日。">
 
 
 
@@ -126,13 +118,13 @@
 
 
 
-  <link rel="canonical" href="http://liyanpeng.com/java并发和多线程.html">
+  <link rel="canonical" href="http://liyanpeng.com/archives/2018/12/">
 
 
 
 
 
-  <title> | LYP</title>
+  <title>Archive | LYP</title>
   
 
 
@@ -160,7 +152,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <div class="container sidebar-position-left page-archive">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
@@ -316,109 +308,72 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-expand">
-    
-    
-    
-    <div class="post-block page">
-      <header class="post-header">
+  
+  
+  
+  <div class="post-block archive">
+    <div id="posts" class="posts-collapse">
+      <span class="archive-move-on"></span>
 
-	<h1 class="post-title" itemprop="name headline"></h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
+      <span class="archive-page-counter">
         
         
-          <p>[TOC]</p>
-<h1 id="并发简史"><a href="#并发简史" class="headerlink" title="并发简史"></a>并发简史</h1><p>在过去,计算机只有一个CPU,并且只能执行一个程序.后来出现多任务处理,可以同时处理执行多个任务程序.然而实际上它并不是”同一时间执行”,而是随着时间片切换执行.</p>
-<p>随着多任务处理,只能满足计算机可以处理运行多个应用程序能力,并没有实现程序多线程的处理能力,导致程序性能不好.</p>
-<p>后来出现程序多线程,也就是同一程序在CPU执行同时,可以在CPU执行程序同事间段处理多个任务线程,提高了程序的执行效率.</p>
-<p>随着计算机的发展出现多核CPU处理器,这就意味着应用程序可以在单独核心或者CPU同时执行多个单独的线程.</p>
-<p>图1-1</p>
-<p><img src="/images/1545015728283.png" alt="1545015728283"></p>
-<h1 id="多线程的好处"><a href="#多线程的好处" class="headerlink" title="多线程的好处"></a>多线程的好处</h1><ol>
-<li><p>提高CPU资源利用率</p>
-</li>
-<li><p>提高程序的响应速度.</p>
-</li>
-<li><p>在大量使用io时可以更好的设计程序,让程序进入后台处理,有效避免阻塞出现;</p>
-</li>
-<li><p>避免单个线程阻塞导致整个程序阻塞.</p>
-<h1 id="多线程的坏处"><a href="#多线程的坏处" class="headerlink" title="多线程的坏处"></a>多线程的坏处</h1><ol>
-<li><p>程序由单一的线程,变成多个线程对象,从时间的角度虽然变快了,但是从空间的角度反而更占内存空间了,共享数据的交互的成本变高了;</p>
-</li>
-<li><p>操作系统的上下文开销也会随着提高,当CPU线程A切换至线程B时,CPU需要保存当前线程的本地数据,程序指针,并加载B线程的本地数据,切换指针并执行</p>
-</li>
-<li><p>增加了程序的复杂性,同时操作系统也要分配和维护相应的(操作系统)资源;</p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p><strong>我们考虑多线程主要从时间,和空间的角度去思考,补充一点根据具体的业务场景使用;</strong></p>
-</li>
-</ol>
-</li>
-</ol>
-<h1 id="并发模型"><a href="#并发模型" class="headerlink" title="并发模型"></a>并发模型</h1><p>什么是并发模型?</p>
-<p><strong>并发模型指的是程序线程如何协作完成程序给的任务;</strong></p>
-<p>并发可以使用不同的并发模型来实现,不同的并发模型使用不同的方式进行通信,协作;</p>
-<h2 id="并行工人"><a href="#并行工人" class="headerlink" title="并行工人"></a>并行工人</h2><p><img src="/images/1545032935316.png" alt="1545032935316"></p>
-<p>在并行工人模型中,委托者加任务分配给不同的工人者,这些并行工作,在不同线程中运行,如果在多核CPU计算机中也许会在不同CPU上运行;</p>
-<p>并行工人的优点:提高程序的代码的并行化,创建跟多的任务程序(Thread)</p>
-<p>并行工人的缺点:无法保证那个线程先执行或者是最后执行;</p>
-<p>这样就导致并行模型先后执行变得困难;</p>
-<p><strong>注释</strong>:[java.util.concurrent] java 包中很多并发使用程序都和并行工人模型一起使用而设计的.</p>
-<h2 id="共享状态模型"><a href="#共享状态模型" class="headerlink" title="共享状态模型"></a>共享状态模型</h2><p><img src="/images/1545034647944.png" alt="1545034647944"></p>
-<p>共享状态进入并行工人模型,线程需要一种方式访问共享数据,以确保线程更改数据对其他线程可见,<u>线程要避免竞争</u>,<u>死锁和其他共享状态的问题</u></p>
-<p>此时,部分并行操作将消失,因为许多并发数据结构都是阻塞的</p>
-<p>共享状态可以由系统中的其他线程修改,所以线程必须每次执行时都需要重新阅读共享状态,不管是否存在内存中还是数据库中;</p>
-<h1 id="装配线并发模型"><a href="#装配线并发模型" class="headerlink" title="装配线并发模型"></a>装配线并发模型</h1><p>流水线:也称工厂模型</p>
-<h2 id=""><a href="#" class="headerlink" title=""></a><img src="/images/1545232066320.png" alt="1545230239243"></h2><p>由上图可见装配线并发模型:就像流水线工人一样,每个工人各司其职只完成自己对应的任务,剩下的继续传递下一位工人;</p>
-<p>一般适用于多io操作:io线程于io线程之间的传递就不用阻塞,等待CPU执行;</p>
-<h2 id="频道模型"><a href="#频道模型" class="headerlink" title="频道模型"></a>频道模型</h2><h2 id="-1"><a href="#-1" class="headerlink" title=""></a><img src="/images/1545233875008.png" alt="1545233875008"></h2><p>在频道模型中工人之间不直接沟通,而是通过频道传递消息,相应的通道员工监听该通道信息;</p>
-<p>好处;</p>
-<ol>
-<li>降低了耦合度;</li>
-<li>取消和订阅变得简单;</li>
-<li>获取数据运行状态日志变得容易;</li>
-</ol>
-<p>缺点:</p>
-<ol>
-<li>装配线并发模型,通常在多个worker上,具体很难确定在哪块代码中执行;</li>
-<li>出现回调函数轮回,很容易产逻辑处理错误;</li>
-</ol>
-<h1 id="功能并行模型"><a href="#功能并行模型" class="headerlink" title="功能并行模型"></a>功能并行模型</h1><p><img src="/images/1545275989733.png" alt="1545275989733"></p>
-<p>函数并行模型:</p>
-<ol>
-<li><p>使用函数调用实现程序,类似流水线并发模型和;</p>
-</li>
-<li><p>Java7 java.util.concurrent包含ForkAndJoinPool的包功能十分类似;</p>
-</li>
-<li><p>Java8 可以直接获取并行流,实际上并行流就是使用多线程处理;</p>
-<p>优点:</p>
-<p>如果计算机多核CPU处理器,并且该功能函数并行模型过长/或很大.且计算机只服务该服务,可以考虑使用;</p>
-<p>缺点:</p>
-<p>一般计算机都会部署其他的应用服务,如果该功能函数模型无法满足/时间和数据量的,个人还是不建议使用并行化;</p>
-<p>总结</p>
-<p>并行并不一定比串行快,具体业务具体分析;</p>
-</li>
-</ol>
-<h1 id="并发模型与分布式系统的相似性"><a href="#并发模型与分布式系统的相似性" class="headerlink" title="并发模型与分布式系统的相似性"></a>并发模型与分布式系统的相似性</h1><p><strong>并发系统</strong> : 不同的线程彼此之间通信,</p>
-<p>分布式系统: 不同的进程相互之间通信</p>
-<p><strong>总结</strong> 线程和进程本质上非常相似.</p>
+        
+          
+        
+        Um..! 1 post. Keep on posting.
+      </span>
+
+      
 
         
+        
+        
+
+        
+          
+          <div class="collection-title">
+            <h1 class="archive-year" id="archive-year-2018">2018</h1>
+          </div>
+        
+        
+
+        
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
+            <a class="post-title-link" href="/2018/12/29/java并发和多线程/" itemprop="url">
+              
+                <span itemprop="name">Untitled</span>
+              
+            </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated" datetime="2018-12-29T10:00:37+08:00" content="2018-12-29">
+          12-29
+        </time>
       </div>
+
+    </header>
+  </article>
+
+
+
       
-      
-      
+
     </div>
-    
-    
-    
   </div>
+  
+  
+  
+
+  
+
 
 
           </div>
@@ -426,20 +381,6 @@
 
 
           
-
-  
-    <div class="comments" id="comments">
-      <div id="disqus_thread">
-        <noscript>
-          Please enable JavaScript to view the
-          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-        </noscript>
-      </div>
-    </div>
-
-  
-
-
 
         </div>
         
@@ -460,17 +401,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -480,6 +412,15 @@
 
           <nav class="site-state motion-element">
 
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
             
 
             
@@ -503,22 +444,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#并发简史"><span class="nav-number">1.</span> <span class="nav-text">并发简史</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#多线程的好处"><span class="nav-number">2.</span> <span class="nav-text">多线程的好处</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#多线程的坏处"><span class="nav-number">3.</span> <span class="nav-text">多线程的坏处</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#并发模型"><span class="nav-number">5.</span> <span class="nav-text">并发模型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#并行工人"><span class="nav-number">5.1.</span> <span class="nav-text">并行工人</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#共享状态模型"><span class="nav-number">5.2.</span> <span class="nav-text">共享状态模型</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#装配线并发模型"><span class="nav-number">6.</span> <span class="nav-text">装配线并发模型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#"><span class="nav-number">6.1.</span> <span class="nav-text"></span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#频道模型"><span class="nav-number">6.2.</span> <span class="nav-text">频道模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#-1"><span class="nav-number">6.3.</span> <span class="nav-text"></span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#功能并行模型"><span class="nav-number">7.</span> <span class="nav-text">功能并行模型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#并发模型与分布式系统的相似性"><span class="nav-number">8.</span> <span class="nav-text">并发模型与分布式系统的相似性</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
@@ -655,10 +580,6 @@
 
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
-
-
 
   
 
@@ -676,18 +597,6 @@
       <script id="dsq-count-scr" src="https://.disqus.com/count.js" async></script>
     
 
-    
-      <script type="text/javascript">
-        var disqus_config = function () {
-          this.page.url = 'http://liyanpeng.com/java并发和多线程.html';
-          this.page.identifier = 'java并发和多线程.html';
-          this.page.title = '';
-        };
-        var d = document, s = d.createElement('script');
-        s.src = 'https://.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', '' + +new Date());
-        (d.head || d.body).appendChild(s);
-      </script>
     
 
   
